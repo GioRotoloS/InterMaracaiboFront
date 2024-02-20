@@ -1,25 +1,15 @@
-import React from "react";
-import logo from './logo.svg';
-import './App.css';
+import { RouterProvider } from "react-router-dom";
+import React from 'react';
+import router from "./utils/routes";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
-
-  const [data, setData] = React.useState(null);
-
-  React.useEffect(() => {
-    fetch("/api")
-      .then((res) => res.json())
-      .then((data) => setData(data.message));
-  });
+export const App = () => {
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          {!data ? "Loading ..." : data}
-        </p>
-      </header>
+    <div>
+      <div>
+        <RouterProvider router={router}/>
+      </div>
     </div>
   );
 }
