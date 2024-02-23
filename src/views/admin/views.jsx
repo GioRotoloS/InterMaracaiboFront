@@ -1,0 +1,44 @@
+import React from 'react'
+import Navbar from '../../components/Navbar';
+import { Button, Col, Row } from 'reactstrap'
+
+const Views = () => {
+  return (
+    <div className='views' style={{
+        width: "100%"
+    }}>
+        <>
+        <Navbar/>
+        </>
+        <div className='container fluid justify-content-center text-center' style={{
+            
+            marginTop: 10,
+            marginBottom: 10
+        }}>
+            <Row xs={1} md={4} style={{
+                marginTop: 10,
+            }}>
+                <Col>
+                    <a className='boton' href='/store'>
+                        Almacen
+                    </a>
+                </Col>
+                <Col>
+                    <a className='boton'>
+                        Compras
+                    </a>
+                </Col>
+                <Col>
+                    <a className='boton'>
+                        Recibidor
+                    </a>
+                </Col>
+                
+            </Row>
+        </div>
+
+    </div>
+  )
+}
+
+export default Views

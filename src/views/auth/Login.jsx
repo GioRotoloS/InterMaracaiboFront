@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '../../components/Navbar';
 import { Button, Form, Input, FormGroup  } from 'reactstrap';
 
 const Login = () => {
@@ -8,9 +7,7 @@ const Login = () => {
     return (
 
         <div className='login'>
-            <>
-            <Navbar/>
-            </>
+            
             <div className='container justify-content-center text-center shadow p-3 mb-5 bg-body border rounded' style={{
                 width: 300,
                 marginTop: 100
@@ -33,7 +30,7 @@ const Login = () => {
                 </FormGroup>
               </Form>
               <div className='d-grid gap-2 col-9 mx-auto'>
-                <Button style={{
+                <Button href='/admin' style={{
                   background: "#0c5aa9"
                 }}>
                   Ingresar

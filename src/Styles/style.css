@@ -1,0 +1,80 @@
+/*Navbar Responsive*/
+.navbar {
+    background-color: rgb(70, 12, 12);
+
+    img {
+        margin-left: 20px;
+        height: 50px;
+    }
+
+    .user {
+        color: white;
+        
+    }
+
+    .navbar>.container-fluid {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: inherit;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 368px) {
+    .navbar>.container-fluid {
+        justify-content: center!important;
+    }
+}
+
+/*Navbar*/
+@media (min-width: 768px) {
+    .navbar>.container-fluid {
+        flex-direction: row!important;
+    }
+    .user {
+        margin-right: 90px;
+    }
+}
+
+/*Botones responsive*/
+.boton {
+    appearance: none;
+    background-color: #2c0808;
+    border: 2px solid #1A1A1A;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-height: 60px;
+    min-width: 0;
+    outline: none;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    transition: all .5s cubic-bezier(.23, 1, 0.32, 1);
+    -webkit-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
+    width: 75%;
+    will-change: transform;
+}
+.boton:disabled {
+    pointer-events: none;
+}
+
+.boton:hover {
+    color: #000000;
+    background-color: #e7c130;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}
+
+.boton:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
