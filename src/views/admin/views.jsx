@@ -24,12 +24,12 @@ const Views = () => {
                     </a>
                 </Col>
                 <Col>
-                    <a className='boton'>
+                    <a className='boton' href='/purch'>
                         Compras
                     </a>
                 </Col>
                 <Col>
-                    <a className='boton'>
+                    <a className='boton' href='/entry'>
                         Recibidor
                     </a>
                 </Col>

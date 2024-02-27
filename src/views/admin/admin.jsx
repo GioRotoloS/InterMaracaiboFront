@@ -20,9 +20,9 @@ const Admin = () => {
                     marginTop: 10,
                 }}>
                     <Col>
-                        <button>
+                        <a className="boton">
                             Usuarios
-                        </button>
+                        </a>
                     </Col>
                     
                 </Row>

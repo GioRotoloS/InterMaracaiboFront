@@ -31,7 +31,7 @@ const Login = () => {
               </Form>
               <div className='d-grid gap-2 col-9 mx-auto'>
                 <Button href='/admin' style={{
-                  background: "#0c5aa9"
+                  background: "#2c0808"
                 }}>
                   Ingresar
                 </Button>
