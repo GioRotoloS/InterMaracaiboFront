@@ -1,124 +1,174 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Col, Form, FormGroup, FormText, Input, Label, Row } from 'reactstrap';
 import styled from 'styled-components';
 
-const ModalRC = () => {
+const ModalRC = ({estado, cambiarEstado}) => {
   
+    const [inputs, setInputs] = useState([{ amount: "", unit: "", desc: "" }]);
+
+    const handleAddInput = () => {
+      setInputs([...inputs, { amount: "", unit: "", desc: "" }]);
+    };
+  
+    const handleChange = (event, index) => {
+      let { name, value } = event.target;
+      let onChangeValue = [...inputs];
+      onChangeValue[index][name] = value;
+      setInputs(onChangeValue);
+    };
+  
+    const handleDeleteInput = (index) => {
+      const newArray = [...inputs];
+      newArray.splice(index, 1);
+      setInputs(newArray);
+    };
 
     return ( 
 
         <>
-            <Overlay>
-                <Contenedor>
-                    <Encabezado>
-                        Requisicion de Compras
-                    </Encabezado>
-                    <Cerrar>
-                        X
-                    </Cerrar>
-                    <Form>
-                        <Row>
-                            <Col md={6}>
-                            <FormGroup>
-                                <Label for="exampleEmail">
-                                Email
-                                </Label>
-                                <Input
-                                id="exampleEmail"
-                                name="email"
-                                placeholder="with a placeholder"
-                                type="email"
-                                />
-                            </FormGroup>
-                            </Col>
-                            <Col md={6}>
-                            <FormGroup>
-                                <Label for="examplePassword">
-                                Password
-                                </Label>
-                                <Input
-                                id="examplePassword"
-                                name="password"
-                                placeholder="password placeholder"
-                                type="password"
-                                />
-                            </FormGroup>
-                            </Col>
-                        </Row>
-                        <FormGroup>
-                            <Label for="exampleAddress">
-                            Address
-                            </Label>
-                            <Input
-                            id="exampleAddress"
-                            name="address"
-                            placeholder="1234 Main St"
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label for="exampleAddress2">
-                            Address 2
-                            </Label>
-                            <Input
-                            id="exampleAddress2"
-                            name="address2"
-                            placeholder="Apartment, studio, or floor"
-                            />
-                        </FormGroup>
-                        <Row>
-                            <Col md={6}>
-                            <FormGroup>
-                                <Label for="exampleCity">
-                                City
-                                </Label>
-                                <Input
-                                id="exampleCity"
-                                name="city"
-                                />
-                            </FormGroup>
-                            </Col>
-                            <Col md={4}>
-                            <FormGroup>
-                                <Label for="exampleState">
-                                State
-                                </Label>
-                                <Input
-                                id="exampleState"
-                                name="state"
-                                />
-                            </FormGroup>
-                            </Col>
-                            <Col md={2}>
-                            <FormGroup>
-                                <Label for="exampleZip">
-                                Zip
-                                </Label>
-                                <Input
-                                id="exampleZip"
-                                name="zip"
-                                />
-                            </FormGroup>
-                            </Col>
-                        </Row>
-                        <FormGroup check>
-                            <Input
-                            id="exampleCheck"
-                            name="check"
-                            type="checkbox"
-                            />
-                            <Label
-                            check
-                            for="exampleCheck"
-                            >
-                            Check me out
-                            </Label>
-                        </FormGroup>
-                        <Button>
-                            Sign in
-                        </Button>
-                    </Form>
-                </Contenedor>
-            </Overlay>
+            { estado && 
+                <Overlay>
+                    <Contenedor>
+                        <Encabezado>
+                            <h3>Requisicion de Compra</h3>
+                        </Encabezado>
+                        <Cerrar onClick={() => cambiarEstado(false)}>X</Cerrar>
+
+                        <Form>
+                            <Row>
+                                <Col md={8}>
+                                <FormGroup>
+                                    <Label for="dept">
+                                    Departamento
+                                    </Label>
+                                    <Input
+                                    id="dept"
+                                    name="dept"
+                                    placeholder="Departamento"
+                                    type="select"
+                                    required
+                                    >
+                                        <option disabled selected>
+                                            
+                                        </option>
+                                        <option>
+                                            Sistemas
+                                        </option>
+                                    </Input>
+                                </FormGroup>
+                                </Col>
+                                <Col md={4}>
+                                <FormGroup>
+                                    <Label for="date">
+                                    Fecha
+                                    </Label>
+                                    <Input
+                                    id="date"
+                                    name="date"
+                                    type="date"
+                                    required
+                                    />
+                                </FormGroup>
+                                </Col>
+                            </Row>
+                            {inputs.map((item, index) => (
+                                <Row>
+                                    <Col md={2} key={index}>
+                                        <Label for="amount">
+                                            Cantidad
+                                        </Label>
+                                        <Input 
+                                        id="amount"
+                                        name="amount"
+                                        type="number"
+                                        min={1}
+                                        required
+                                        value={item.amount}
+                                        onChange={(event) => handleChange(event, index)}
+                                        />
+                                    </Col>
+                                    <Col md={1}>
+                                        <Label for="unit">
+                                            Unidad
+                                        </Label>
+                                        <Input 
+                                        id="unit"
+                                        name="unit"
+                                        type="text"
+                                        required
+                                        value={item.unit}
+                                        onChange={(event) => handleChange(event, index)}
+                                        />
+                                    </Col>
+                                    <Col md={7}>
+                                        <Label for="desc">
+                                            descripcion
+                                        </Label>
+                                        <Input 
+                                        id="desc"
+                                        name="descripcion"
+                                        type="text"
+                                        required
+                                        value={item.desc}
+                                        onChange={(event) => handleChange(event, index)}
+                                        />
+                                    </Col>
+                                    {inputs.length > 1 && (
+                                        <Col md={1} style={{
+                                            marginTop: "30px",
+                                        }}>
+                                            <Button style={{
+                                                background: "#2c0808",
+                                            }} onClick={() => handleDeleteInput(index)}>Delete</Button>
+                                        </Col>
+                                    )}
+                                    {index === inputs.length - 1 && (
+                                        <Col md={1} style={{
+                                            marginTop: "30px",
+                                        }}>
+                                            <Button style={{
+                                                background: "#2c0808",
+                                            }} onClick={() => handleAddInput()}>Add</Button>
+                                        </Col>
+                                    )}
+                                </Row>
+                            ))}
+                            <Row>
+                                <FormGroup>
+                                    <Label for="obs">
+                                    Observaciones
+                                    </Label>
+                                    <Input
+                                    id="obs"
+                                    name="obs"
+                                    type="textarea"
+                                    style={{
+                                        resize: 'none'
+                                    }}
+                                    />
+                                </FormGroup>
+                            </Row>
+                            <Row>
+                                <Col>
+                                    <Button style={{
+                                    background: "#2c0808",
+                                    }}>
+                                    Realizar
+                                    </Button>
+                                </Col>
+                                <Col>
+                                    <Button onClick={() => cambiarEstado(false)}>
+                                    Cancelar
+                                    </Button>
+                                </Col>
+                                
+                            </Row>
+                            
+                        </Form>
+                    </Contenedor>
+                </Overlay>
+
+            }
         </>
     );
 };
@@ -139,12 +189,29 @@ const Overlay = styled.div`
 
 const Contenedor = styled.div`
     width: 75%;
-    min-height: 50%;
+    height: 450px;
     background: #fff;
     position: relative;
     border-radius: 5px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     padding: 20px;
+    overflow-y: scroll;
 `;
 
-const Encabezado
+const Encabezado = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid;
+    h3 {
+        font-weight 500;
+        font-size: 16px:
+    }
+`;
+const Cerrar = styled.button`
+    position: absolute;
+    top:20px;
+    right: 20px;
+`;

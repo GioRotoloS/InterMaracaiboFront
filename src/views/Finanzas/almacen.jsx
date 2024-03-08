@@ -5,6 +5,9 @@ import ModalRC from '../../components/ModalRC';
 
 const Almacen = () => {
 
+    const [modalRC, setModalRC] = useState(false);
+    
+
   return (
 
     <div className='almacen'>
@@ -25,7 +28,9 @@ const Almacen = () => {
                         <CardTitle tag="h5">
                         Requisicion de Compras
                         </CardTitle>
-                        <Button color="primary">
+                        <Button onClick={() => setModalRC((!modalRC))} style={{
+                            background: "#2c0808",
+                        }}>
                         Realizar
                         </Button>
                     </Card>
@@ -36,7 +41,9 @@ const Almacen = () => {
                         <CardTitle tag="h5">
                         Estado de Requisicion
                         </CardTitle>
-                        <Button color="primary">
+                        <Button style={{
+                            background: "#2c0808",
+                        }}>
                         Comprobar
                         </Button>
                     </Card>
@@ -48,7 +55,9 @@ const Almacen = () => {
                         <CardTitle tag="h5">
                         Solicitudes de Mercancia
                         </CardTitle>
-                        <Button color="primary">
+                        <Button style={{
+                            background: "#2c0808",
+                        }}>
                         Revisar
                         </Button>
                     </Card>
@@ -59,7 +68,9 @@ const Almacen = () => {
                         <CardTitle tag="h5">
                         Despacho de Mercancia
                         </CardTitle>
-                        <Button color="primary">
+                        <Button style={{
+                            background: "#2c0808",
+                        }}>
                         Despachar
                         </Button>
                     </Card>
@@ -135,7 +146,8 @@ const Almacen = () => {
                 </tbody>
             </Table>
         </div>
-        <ModalRC/>
+        <ModalRC estado = {modalRC}
+                 cambiarEstado = {setModalRC}/>
     </div>
   );
 }
