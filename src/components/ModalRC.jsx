@@ -188,7 +188,7 @@ const Overlay = styled.div`
 `;
 
 const Contenedor = styled.div`
-    width: 75%;
+    width: 90%;
     height: 450px;
     background: #fff;
     position: relative;

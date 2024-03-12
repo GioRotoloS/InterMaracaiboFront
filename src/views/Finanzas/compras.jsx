@@ -19,9 +19,12 @@ const Compras = () => {
                     <Card
                         body>
                         <CardTitle tag="h5">
-                        Estado de Requisicion
+                        Ordenes de Compra
                         </CardTitle>
-                        <Button color="primary">
+                        <Button href="/orderc"
+                            style={{
+                            background: "#2c0808",
+                        }}>
                         Comprobar
                         </Button>
                     </Card>
