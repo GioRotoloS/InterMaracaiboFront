@@ -39,7 +39,7 @@ const router = createBrowserRouter([
         element: <Recibidor/>
     },
     {
-        path: "/orderc",
+        path: "/purch/orderc",
         element: <OrdenesC/>
     },
     {

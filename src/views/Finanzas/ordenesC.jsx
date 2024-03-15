@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from '../../components/Navbar';
 import { Button, Col, Input, Label, Row, Table } from 'reactstrap';
+import DetalleC from '../../components/DetalleC';
 
 const OrdenesC = () => {
+
+    const [detalleC, setDetalleC] = useState(false);
+
   return (
     <div className='ordenesC'>
         <>
@@ -142,43 +146,27 @@ const OrdenesC = () => {
                         <td data-label="Fecha">
                             09/03/2024
                         </td>
-                        <td>
-                            <button className='tablaB'>Detalles</button>
+                        <td className='justify-content-center text-center'>
+                            <button onClick={() => setDetalleC((!detalleC))} className='tablaB'>Detalles</button>
                         </td>
-                        <td>
+                        <td className='justify-content-center text-center'>
                             <button className='tablaB'>Procesar</button>
                         </td>
-                        <td>
-                            <button className='tablaB'>Anular</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope='row' data-label="#">
-                            2
-                        </th>
-                        <td data-label="Departamento">
-                            Almacen
-                        </td>
-                        <td data-label="Cantidad de Productos">
-                            8
-                        </td>
-                        <td data-label="Fecha">
-                            09/03/2024
-                        </td>
-                        <td>
-                            <button className='tablaB'>Detalles</button>
-                        </td>
-                        <td>
-                            <button className='tablaB'>Procesar</button>
-                        </td>
-                        <td>
+                        <td className='justify-content-center text-center'>
                             <button className='tablaB'>Anular</button>
                         </td>
                     </tr>
                 </tbody>
             </Table>
+            <Button style={{
+            background: "#2c0808",
+            marginTop: "32px"
+            }} href="/purch">
+                Volver
+            </Button>
         </div>
-
+        <DetalleC estado = {detalleC}
+                cambiarEstado = {setDetalleC}/>
     </div>
   )
 }

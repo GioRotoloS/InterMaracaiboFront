@@ -19,13 +19,27 @@ const Compras = () => {
                     <Card
                         body>
                         <CardTitle tag="h5">
-                        Ordenes de Compra
+                        Requisiciones de Compra
                         </CardTitle>
-                        <Button href="/orderc"
+                        <Button href="/purch/orderc"
                             style={{
                             background: "#2c0808",
                         }}>
-                        Comprobar
+                        Revisar
+                        </Button>
+                    </Card>
+                </Col>
+                <Col>
+                    <Card
+                        body>
+                        <CardTitle tag="h5">
+                        Agregar nuevo Proveedor
+                        </CardTitle>
+                        <Button href="/purch/orderc"
+                            style={{
+                            background: "#2c0808",
+                        }}>
+                        Agregar
                         </Button>
                     </Card>
                 </Col>

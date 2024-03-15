@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Col, Form, FormGroup, FormText, Input, Label, Row } from 'reactstrap';
+import { Button, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import styled from 'styled-components';
 
 const ModalRC = ({estado, cambiarEstado}) => {
@@ -30,7 +30,7 @@ const ModalRC = ({estado, cambiarEstado}) => {
                 <Overlay>
                     <Contenedor>
                         <Encabezado>
-                            <h3>Requisicion de Compra</h3>
+                            <h3>Detalle de Compra número 1</h3>
                         </Encabezado>
                         <Cerrar onClick={() => cambiarEstado(false)}>X</Cerrar>
 
@@ -44,16 +44,10 @@ const ModalRC = ({estado, cambiarEstado}) => {
                                     <Input
                                     id="dept"
                                     name="dept"
-                                    placeholder="Departamento"
-                                    type="select"
-                                    required
+                                    value="Sistemas"
+                                    type="text"
+                                    disabled
                                     >
-                                        <option disabled selected>
-                                            
-                                        </option>
-                                        <option>
-                                            Sistemas
-                                        </option>
                                     </Input>
                                 </FormGroup>
                                 </Col>
@@ -65,8 +59,10 @@ const ModalRC = ({estado, cambiarEstado}) => {
                                     <Input
                                     id="date"
                                     name="date"
+                                    value="2024-03-12"
                                     type="date"
                                     required
+                                    disabled
                                     />
                                 </FormGroup>
                                 </Col>
@@ -85,6 +81,7 @@ const ModalRC = ({estado, cambiarEstado}) => {
                                         required
                                         value={item.amount}
                                         onChange={(event) => handleChange(event, index)}
+                                        disabled
                                         />
                                     </Col>
                                     <Col md={1}>
@@ -98,6 +95,7 @@ const ModalRC = ({estado, cambiarEstado}) => {
                                         required
                                         value={item.unit}
                                         onChange={(event) => handleChange(event, index)}
+                                        disabled
                                         />
                                     </Col>
                                     <Col md={7}>
@@ -106,31 +104,14 @@ const ModalRC = ({estado, cambiarEstado}) => {
                                         </Label>
                                         <Input 
                                         id="desc"
-                                        name="desc"
+                                        name="descripcion"
                                         type="text"
                                         required
                                         value={item.desc}
                                         onChange={(event) => handleChange(event, index)}
+                                        disabled
                                         />
                                     </Col>
-                                    {inputs.length > 1 && (
-                                        <Col md={1} style={{
-                                            marginTop: "30px",
-                                        }}>
-                                            <Button style={{
-                                                background: "#2c0808",
-                                            }} onClick={() => handleDeleteInput(index)}>Delete</Button>
-                                        </Col>
-                                    )}
-                                    {index === inputs.length - 1 && (
-                                        <Col md={1} style={{
-                                            marginTop: "30px",
-                                        }}>
-                                            <Button style={{
-                                                background: "#2c0808",
-                                            }} onClick={() => handleAddInput()}>Add</Button>
-                                        </Col>
-                                    )}
                                 </Row>
                             ))}
                             <Row>
@@ -145,7 +126,8 @@ const ModalRC = ({estado, cambiarEstado}) => {
                                     style={{
                                         resize: 'none'
                                     }}
-                                    maxLength={200}
+                                    value="Obervaciones de la compra"
+                                    disabled
                                     />
                                 </FormGroup>
                             </Row>
@@ -154,7 +136,7 @@ const ModalRC = ({estado, cambiarEstado}) => {
                                     <Button style={{
                                     background: "#2c0808",
                                     }}>
-                                    Realizar
+                                    Procesar
                                     </Button>
                                 </Col>
                                 <Col>
