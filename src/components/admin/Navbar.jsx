@@ -9,7 +9,7 @@ import {
   DropdownItem,
   NavbarText,
 } from 'reactstrap';
-import logo from "../img/Logo.png";
+import logo from "../../img/Logo.png";
 
 function Menu({ direction, ...args }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -19,7 +19,7 @@ function Menu({ direction, ...args }) {
   return (
     <div>
       <Navbar className='navbar'>
-        <NavbarBrand href="/home">
+        <NavbarBrand>
         <img src={logo} alt=""/>
         </NavbarBrand>
         <Navbar>
@@ -32,6 +32,7 @@ function Menu({ direction, ...args }) {
                 Opciones
               </DropdownToggle>
               <DropdownMenu {...args}>
+              <DropdownItem href='/admin'>Administrador</DropdownItem>
                 <DropdownItem href='/views'>Modulos</DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem href="/">Salir</DropdownItem>

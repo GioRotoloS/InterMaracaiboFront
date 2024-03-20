@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Card, CardTitle, Col, Row } from 'reactstrap'
-import Navbar from '../../components/Navbar';
+import Navbar from '../../components/admin/Navbar';
 
 const Compras = () => {
   return (
@@ -9,9 +9,10 @@ const Compras = () => {
         <Navbar/>
         </>
         
-        <div className='container fluid justify-content-center text-center' style={{
+        <div className='container fluid justify-content-center text-center title' style={{
             marginTop: 10
         }}>
+        <h1>Compras</h1>
             <Row md={4}  style={{
                 marginTop: 30,
             }}>

@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from '../../components/Navbar';
+import Navbar from '../../components/admin/Navbar';
 import {Row, Col} from 'reactstrap';
 
 const Admin = () => {
@@ -11,20 +11,30 @@ const Admin = () => {
             <>
             <Navbar/>
             </>
-            <div className='container fluid justify-content-center text-center' style={{
+            <div className='container fluid justify-content-center text-center title' style={{
                 
                 marginTop: 10,
                 marginBottom: 10
             }}>
+                <h1>Administrador</h1>
                 <Row xs={1} md={4} style={{
                     marginTop: 10,
                 }}>
                     <Col>
-                        <a className="boton">
+                        <a href="/admin/users" className="boton">
                             Usuarios
                         </a>
                     </Col>
-                    
+                    <Col>
+                        <a href="/admin/permit" className="boton">
+                            Permisos
+                        </a>
+                    </Col>
+                    <Col>
+                        <a href='/views' className="boton">
+                            Modulos
+                        </a>
+                    </Col>
                 </Row>
             </div>
 

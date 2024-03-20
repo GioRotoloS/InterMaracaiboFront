@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Card, CardTitle, Col, Row } from 'reactstrap'
-import Navbar from '../../components/Navbar';
+import Navbar from '../../components/admin/Navbar';
 
 const Recibidor = () => {
   return (

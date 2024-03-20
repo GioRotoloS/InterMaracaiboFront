@@ -3,7 +3,7 @@ import Navbar from '../../components/admin/Navbar';
 import { Button, Col, Input, Label, Row, Table } from 'reactstrap';
 import DetalleC from '../../components/Finanzas/DetalleC';
 
-const OrdenesC = () => {
+const AllUsers = () => {
 
     const [detalleC, setDetalleC] = useState(false);
 
@@ -14,7 +14,7 @@ const OrdenesC = () => {
         </>
 
         <div className='justify-content-center text-center title'>
-            <h1>Ordenes de Compra</h1>
+            <h1>Usuarios</h1>
         </div>
 
         <div className='container fluid justify-content-center mt-5 text-center'>
@@ -38,20 +38,7 @@ const OrdenesC = () => {
                         </option>
                     </Input>
                 </Col>
-                <Col md={2}>
-                    <Label for="date">
-                        Fecha
-                    </Label>
-                    <Input
-                    id="date"
-                    name="date"
-                    placeholder="Fecha"
-                    type="date"
-                    required
-                    >
-                    </Input>
-                </Col>
-                <Col md={3}>
+                <Col md={5}>
                     <Label for="Orden">
                         Orden
                     </Label>
@@ -67,10 +54,13 @@ const OrdenesC = () => {
                         </option>
                         <option>
                             Descendente
-                         </option>
+                        </option>
+                        <option>
+                            Alfabetico
+                        </option>
                     </Input>
                 </Col>
-                <Col>
+                <Col md={2}>
                     <Button style={{
                     background: "#2c0808",
                     marginTop: "32px"
@@ -97,38 +87,32 @@ const OrdenesC = () => {
                             backgroundColor: "#2c0808",
                             color: "white"
                         }}>
-                            Departamento
+                            Usuario
                         </th>
                         <th scope='col' style={{
                             backgroundColor: "#2c0808",
                             color: "white"
                         }}>
-                            Cantidad de Productos
+                            Primer Nombre
 
                         </th>
                         <th scope='col' style={{
                             backgroundColor: "#2c0808",
                             color: "white"
                         }}>
-                            Fecha
+                            Primer Apellido
                         </th>
                         <th scope='col' style={{
                             backgroundColor: "#2c0808",
                             color: "white"
                         }}>
-                            
+                            Departamento
                         </th>
                         <th scope='col' style={{
                             backgroundColor: "#2c0808",
                             color: "white"
                         }}>
-                            
-                        </th>
-                        <th scope='col' style={{
-                            backgroundColor: "#2c0808",
-                            color: "white"
-                        }}>
-                            
+                            Cargo
                         </th>
                     </tr>
                 </thead>
@@ -137,23 +121,20 @@ const OrdenesC = () => {
                         <th scope='row' data-label="#">
                             1
                         </th>
+                        <td data-label="Usuario">
+                            Sistemas
+                        </td>
+                        <td data-label="Primer Nombre">
+                            Giovanna
+                        </td>
+                        <td data-label="Primer Apellido">
+                            Rotolo
+                        </td>
                         <td data-label="Departamento">
                             Sistemas
                         </td>
-                        <td data-label="Cantidad de Productos">
-                            4
-                        </td>
-                        <td data-label="Fecha">
-                            09/03/2024
-                        </td>
-                        <td className='justify-content-center text-center'>
-                            <button onClick={() => setDetalleC((!detalleC))} className='tablaB'>Detalles</button>
-                        </td>
-                        <td className='justify-content-center text-center'>
-                            <button className='tablaB'>Procesar</button>
-                        </td>
-                        <td className='justify-content-center text-center'>
-                            <button className='tablaB'>Anular</button>
+                        <td data-label="Cargo">
+                            admin
                         </td>
                     </tr>
                 </tbody>
@@ -161,7 +142,7 @@ const OrdenesC = () => {
             <Button style={{
             background: "#2c0808",
             marginTop: "32px"
-            }} href="/purch">
+            }} href="/admin/users">
                 Volver
             </Button>
         </div>
@@ -171,4 +152,4 @@ const OrdenesC = () => {
   )
 }
 
-export default OrdenesC
+export default AllUsers

@@ -5,22 +5,12 @@ import styled from 'styled-components';
 const ModalRC = ({estado, cambiarEstado}) => {
   
     const [inputs, setInputs] = useState([{ amount: "", unit: "", desc: "" }]);
-
-    const handleAddInput = () => {
-      setInputs([...inputs, { amount: "", unit: "", desc: "" }]);
-    };
   
     const handleChange = (event, index) => {
       let { name, value } = event.target;
       let onChangeValue = [...inputs];
       onChangeValue[index][name] = value;
       setInputs(onChangeValue);
-    };
-  
-    const handleDeleteInput = (index) => {
-      const newArray = [...inputs];
-      newArray.splice(index, 1);
-      setInputs(newArray);
     };
 
     return ( 

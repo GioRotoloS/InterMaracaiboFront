@@ -6,6 +6,9 @@ import {
 import Login from '../views/auth/Login';
 import Admin from '../views/admin/admin';
 import Views from '../views/admin/views';
+import Users from '../views/admin/users';
+import AllUsers from '../views/admin/allusers';
+import Permisos from '../views/admin/permisos';
 import Almacen from '../views/Finanzas/almacen'
 import Compras from '../views/Finanzas/compras';
 import Recibidor from '../views/Finanzas/recibidor';
@@ -21,6 +24,18 @@ const router = createBrowserRouter([
     {
         path: "/admin",
         element: <Admin/>,
+    },
+    {
+        path: "/admin/users",
+        element: <Users/>
+    },
+    {
+        path: "/admin/users/allusers",
+        element: <AllUsers/>
+    },
+    {
+        path: "/admin/permit",
+        element: <Permisos/>
     },
     {
         path: "/views",

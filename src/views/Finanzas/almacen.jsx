@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Card, CardTitle, Col, Row, Table } from 'reactstrap'
-import Navbar from '../../components/Navbar';
-import ModalRC from '../../components/ModalRC';
+import Navbar from '../../components/admin/Navbar';
+import ModalRC from '../../components/Finanzas/ModalRC';
 
 const Almacen = () => {
 
