@@ -38,7 +38,7 @@ const router = createBrowserRouter([
         element: <Permisos/>
     },
     {
-        path: "/views",
+        path: "/admin/views",
         element: <Views/>
     },
     {

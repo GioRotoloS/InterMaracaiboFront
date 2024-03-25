@@ -31,7 +31,7 @@ const Admin = () => {
                         </a>
                     </Col>
                     <Col>
-                        <a href='/views' className="boton">
+                        <a href='/admin/views' className="boton">
                             Modulos
                         </a>
                     </Col>
