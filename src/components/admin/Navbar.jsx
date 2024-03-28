@@ -33,7 +33,7 @@ function Menu({ direction, ...args }) {
               </DropdownToggle>
               <DropdownMenu {...args}>
               <DropdownItem href='/admin'>Administrador</DropdownItem>
-                <DropdownItem href='/views'>Modulos</DropdownItem>
+                <DropdownItem href='/admin/views'>Modulos</DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem href="/">Salir</DropdownItem>
               </DropdownMenu>

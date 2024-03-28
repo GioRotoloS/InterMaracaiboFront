@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Form, Input, FormGroup  } from 'reactstrap';
+import Logo from '../../img/YuShuLogo.png'
 
 const Login = () => {
 
@@ -12,9 +13,14 @@ const Login = () => {
                 width: 300,
                 marginTop: 100
             }}>
-                <h5>
-                Inicio de Sesion
-                </h5>
+
+              <div>
+                <img src={Logo} alt="" style={{
+                  marginTop: 20,
+                  width: '90%',
+                  marginBottom: 20,
+                }}/>
+              </div>
                 <div style={{
                 padding: 20
                 }}>
@@ -30,9 +36,7 @@ const Login = () => {
                 </FormGroup>
               </Form>
               <div className='d-grid gap-2 col-9 mx-auto'>
-                <Button href='/admin' style={{
-                  background: "#2c0808"
-                }}>
+                <Button  color="danger" href='/admin'>
                   Ingresar
                 </Button>
               </div>
