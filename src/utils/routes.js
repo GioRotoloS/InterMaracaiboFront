@@ -9,6 +9,7 @@ import Views from '../views/admin/views';
 import Users from '../views/admin/users';
 import AllUsers from '../views/admin/allusers';
 import Permisos from '../views/admin/permisos';
+import Cargos from '../views/admin/cargos';
 import Almacen from '../views/Finanzas/almacen'
 import Compras from '../views/Finanzas/compras';
 import Recibidor from '../views/Finanzas/recibidor';
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
     {
         path: "/admin/permit",
         element: <Permisos/>
+    },
+    {
+        path: "/admin/positions",
+        element: <Cargos/>
     },
     {
         path: "/admin/views",

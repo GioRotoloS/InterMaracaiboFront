@@ -27,7 +27,82 @@ const Permisos = () => {
           <div className='justify-content-center text-center title'>
             <h1>Permisos</h1>
           </div>
-          <div className='tabs container p-3 mb-5 bg-body border rounded'>
+          <div className='container fluid justify-content-center mt-5 mb-5 text-center'>
+            <Row>
+                <Col md={5}>
+                    <Label for="dept">
+                        Modulo
+                    </Label>
+                    <Input
+                    id="dept"
+                    name="dept"
+                    placeholder="Departamento"
+                    type="select"
+                    required
+                    >
+                        <option disabled selected>
+                            
+                        </option>
+                        <option>
+                            Almacen
+                        </option>
+                        <option>
+                            Compras
+                        </option>
+                        <option>
+                            Recibidor
+                        </option>
+                    </Input>
+                </Col>
+                <Col md={2}>
+                    <Label for="position">
+                        Cargo
+                    </Label>
+                    <Input
+                    id="position"
+                    name="position"
+                    placeholder="Cargo"
+                    type="select"
+                    required
+                    >
+                      <option disabled selected>
+                            
+                      </option>
+                      <option>
+                          Admin
+                      </option>
+                      
+                    </Input>
+                </Col>
+                <Col md={3}>
+                    <Label for="Orden">
+                        Orden
+                    </Label>
+                    <Input
+                    id="Orden"
+                    name="Orden"
+                    placeholder="Fecha"
+                    type="select"
+                    required
+                    >
+                        <option selected>
+                            Ascendente
+                        </option>
+                        <option>
+                            Descendente
+                         </option>
+                    </Input>
+                </Col>
+                <Col>
+                    <Button style={{
+                    background: "#2c0808",
+                    marginTop: "32px"
+                    }}>Buscar
+                    </Button>
+                </Col>
+            </Row>
+          </div>
+          <div className='tabs container p-3 mb-5 bg-body border border-dark rounded'>
             <Nav tabs>
               <NavItem>
                 <NavLink

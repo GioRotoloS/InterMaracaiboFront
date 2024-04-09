@@ -126,7 +126,6 @@ const NewUser = ({estado, cambiarEstado}) => {
                                     <Input
                                     id="cargo"
                                     name="cargo"
-                                    value="admin"
                                     type="text"
                                     required
                                     >

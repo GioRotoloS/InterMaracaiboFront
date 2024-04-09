@@ -9,7 +9,7 @@ import {
   DropdownItem,
   NavbarText,
 } from 'reactstrap';
-import logo from "../../img/Logo.png";
+import Logo from '../../img/YuShuLogo.png'
 
 function Menu({ direction, ...args }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -20,7 +20,7 @@ function Menu({ direction, ...args }) {
     <div>
       <Navbar className='navbar'>
         <NavbarBrand>
-        <img src={logo} alt=""/>
+        <img src={Logo} alt=""/>
         </NavbarBrand>
         <Navbar>
           <NavbarText className='user'>Usuario</NavbarText>
