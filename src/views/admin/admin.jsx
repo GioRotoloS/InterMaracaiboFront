@@ -36,7 +36,7 @@ const Admin = () => {
                         </a>
                     </Col>
                     <Col>
-                        <a href='/admin/views' className="boton">
+                        <a href='/admin/dept' className="boton">
                             Departamentos
                         </a>
                     </Col>
