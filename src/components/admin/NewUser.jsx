@@ -69,7 +69,20 @@ const NewUser = ({estado, cambiarEstado}) => {
                                 </Col>
                             </Row>
                             <Row md={8}>
-                                <Col md={6}>
+                                <Col md={4}>
+                                    <FormGroup>
+                                        <Label for="ci">
+                                            Cedula
+                                        </Label>
+                                        <Input 
+                                        id="ci"
+                                        name="ci"
+                                        type="number"
+                                        required
+                                        />
+                                    </FormGroup>
+                                </Col>
+                                <Col md={4}>
                                     <FormGroup>
                                         <Label for="user">
                                             Usuario
@@ -82,7 +95,7 @@ const NewUser = ({estado, cambiarEstado}) => {
                                         />
                                     </FormGroup>
                                 </Col>
-                                <Col md={6}>
+                                <Col md={4}>
                                     <FormGroup>
                                         <Label for="pass">
                                             Contraseña
@@ -90,7 +103,7 @@ const NewUser = ({estado, cambiarEstado}) => {
                                         <Input 
                                         id="pass"
                                         name="pass"
-                                        type="text"
+                                        type="password"
                                         required
                                         />
                                     </FormGroup>

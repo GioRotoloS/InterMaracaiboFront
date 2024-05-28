@@ -3,7 +3,6 @@ import Navbar from '../../components/admin/Navbar';
 import { Button, Card, CardText, CardTitle, Col, Form, FormGroup, Input, Label, Nav, NavItem, NavLink, Row, TabContent, TabPane } from 'reactstrap'
 
 const Permisos = () => {
-
   const [activeTab, setActiveTab] = useState("1");
 
   const cambiarTab = (numeroTab) => {
@@ -11,8 +10,8 @@ const Permisos = () => {
       setActiveTab(numeroTab);
     }
   }
-
   return (
+
     <div className='permisos' style={{
       width: "100%"
   }}>
@@ -29,68 +28,17 @@ const Permisos = () => {
           </div>
           <div className='container fluid justify-content-center mt-5 mb-5 text-center'>
             <Row>
-                <Col md={5}>
+                <Col md={10}>
                     <Label for="dept">
-                        Modulo
+                        Usuario
                     </Label>
                     <Input
-                    id="dept"
-                    name="dept"
-                    placeholder="Departamento"
-                    type="select"
+                    id="user"
+                    name="user"
+                    placeholder="Este boton es un buscador en tiempo real"
+                    type="text"
                     required
                     >
-                        <option disabled selected>
-                            
-                        </option>
-                        <option>
-                            Almacen
-                        </option>
-                        <option>
-                            Compras
-                        </option>
-                        <option>
-                            Recibidor
-                        </option>
-                    </Input>
-                </Col>
-                <Col md={2}>
-                    <Label for="position">
-                        Cargo
-                    </Label>
-                    <Input
-                    id="position"
-                    name="position"
-                    placeholder="Cargo"
-                    type="select"
-                    required
-                    >
-                      <option disabled selected>
-                            
-                      </option>
-                      <option>
-                          Admin
-                      </option>
-                      
-                    </Input>
-                </Col>
-                <Col md={3}>
-                    <Label for="Orden">
-                        Orden
-                    </Label>
-                    <Input
-                    id="Orden"
-                    name="Orden"
-                    placeholder="Fecha"
-                    type="select"
-                    required
-                    >
-                        <option selected>
-                            Ascendente
-                        </option>
-                        <option>
-                            Descendente
-                         </option>
                     </Input>
                 </Col>
                 <Col>
