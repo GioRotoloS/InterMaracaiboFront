@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Navbar from '../../components/admin/Navbar';
-import { Button, Card, CardText, CardTitle, Col, Form, FormGroup, Input, Label, Nav, NavItem, NavLink, Row, TabContent, TabPane } from 'reactstrap'
+import Navbar from '../../../components/admin/Navbar';
+import { Button, Col, Form, FormGroup, Input, Label, Nav, NavItem, NavLink, Row, TabContent, TabPane } from 'reactstrap'
 
 const Permisos = () => {
   const [activeTab, setActiveTab] = useState("1");
@@ -78,10 +78,11 @@ const Permisos = () => {
                 </NavLink>
               </NavItem>
             </Nav>
-            <TabContent activeTab={activeTab}>
+            <TabContent activeTab={activeTab} >
               <TabPane tabId="1">
                 <Form style={{
-                  marginTop: "20px"
+                  marginTop: "20px",
+                  
                 }}>
                   <Row>
                     <Col md={4}>
@@ -92,6 +93,9 @@ const Permisos = () => {
                           name="requisiciones_compra"
                           type="checkbox"
                           value="1"
+                          style={{
+                            borderColor: "#2c0808"
+                          }}
                           />
                           <Label>
                             Requisiciones de Compra
@@ -104,6 +108,9 @@ const Permisos = () => {
                           name="recepcion_mercancia"
                           type="checkbox"
                           value="1"
+                          style={{
+                            borderColor: "#2c0808"
+                          }}
                           />
                           <Label>
                             Recepcion de Mercancia
@@ -116,6 +123,9 @@ const Permisos = () => {
                           name="despacho_mercancia"
                           type="checkbox"
                           value="1"
+                          style={{
+                            borderColor: "#2c0808"
+                          }}
                           />
                           <Label>
                             Despacho de Mercancia
@@ -128,6 +138,9 @@ const Permisos = () => {
                           name="almacen_existencia"
                           type="checkbox"
                           value="1"
+                          style={{
+                            borderColor: "#2c0808"
+                          }}
                           />
                           <Label>
                             Almacen en Existencia
@@ -140,6 +153,9 @@ const Permisos = () => {
                           name="articulo_nuevo"
                           type="checkbox"
                           value="1"
+                          style={{
+                            borderColor: "#2c0808"
+                          }}
                           />
                           <Label>
                             Creacion de Articulo Nuevo
@@ -171,6 +187,9 @@ const Permisos = () => {
                           name="requisiciones_compra"
                           type="checkbox"
                           value="1"
+                          style={{
+                            borderColor: "#2c0808"
+                          }}
                           />
                           <Label>
                             Requisiciones de Compra
@@ -183,6 +202,9 @@ const Permisos = () => {
                           name="nuevo_proveedor"
                           type="checkbox"
                           value="1"
+                          style={{
+                            borderColor: "#2c0808"
+                          }}
                           />
                           <Label>
                             Carga de Facturas
@@ -214,6 +236,9 @@ const Permisos = () => {
                           name="requisiciones_compra"
                           type="checkbox"
                           value="1"
+                          style={{
+                            borderColor: "#2c0808"
+                          }}
                           />
                           <Label>
                             Requisiciones de Compra
@@ -226,6 +251,9 @@ const Permisos = () => {
                           name="nuevo_proveedor"
                           type="checkbox"
                           value="1"
+                          style={{
+                            borderColor: "#2c0808"
+                          }}
                           />
                           <Label>
                             Agregar Nuevo Proveedor

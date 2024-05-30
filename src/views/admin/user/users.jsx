@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { Button, Card, CardTitle, Col, Row, Table } from 'reactstrap'
-import Navbar from '../../components/admin/Navbar';
-import NewUser from '../../components/admin/NewUser';
-import DelUser from '../../components/admin/DelUser';
-import EditUser from '../../components/admin/EditUser';
+import Navbar from '../../../components/admin/Navbar';
+import NewUser from '../../../components/admin/UserModal/NewUser';
+import DelUser from '../../../components/admin/UserModal/DelUser';
+import EditUser from '../../../components/admin/UserModal/EditUser';
 
 const Users = () => {
 

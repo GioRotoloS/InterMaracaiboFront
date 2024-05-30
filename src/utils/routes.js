@@ -6,11 +6,11 @@ import {
 import Login from '../views/auth/Login';
 import Admin from '../views/admin/admin';
 import Views from '../views/admin/views';
-import Users from '../views/admin/users';
-import AllUsers from '../views/admin/allusers';
-import Permisos from '../views/admin/permisos';
-import Cargos from '../views/admin/cargos';
-import Dept from '../views/admin/dept';
+import Users from '../views/admin/user/users';
+import AllUsers from '../views/admin/user/allusers';
+import Permisos from '../views/admin/permiso/permisos';
+import Cargos from '../views/admin/cargo/cargos';
+import AllCargos from '../views/admin/cargo/allcargos';
 import Almacen from '../views/Finanzas/almacen'
 import Compras from '../views/Finanzas/compras';
 import Recibidor from '../views/Finanzas/recibidor';
@@ -44,8 +44,8 @@ const router = createBrowserRouter([
         element: <Cargos/>
     },
     {
-        path: "/admin/dept",
-        element: <Dept/>
+        path: "/admin/positions/allpositions",
+        element: <AllCargos/>
     },
     {
         path: "/admin/views",

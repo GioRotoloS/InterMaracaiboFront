@@ -1,8 +1,43 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { Button, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import styled from 'styled-components';
 
 const NewUser = ({estado, cambiarEstado}) => {
+
+    const [inputs, setInputs] = useState({
+        firstname: "",
+        secondname: "",
+        firstlastname: "",
+        secondlastname: "",
+        id: 0,
+        user: "",
+        pass: "",
+    });
+
+    const [err, setError] = useState(null);
+
+    const [data, setData] = useState(null);
+
+    const handleChange = e => {
+        setInputs(prev=>({...prev, [e.target.name]: e.target.value}))
+    }
+
+    const handleSubmit = async e => {
+        e.preventDefault()
+
+        try {
+            await axios.post("/auth/register", inputs)
+        } catch (err) {
+            setError(err.response.data)
+        }
+    }
+
+    useEffect(() => {
+        fetch("/auth/register")
+        .then((res) => res.json())
+        .then((data) => setData(data.message));
+    }, []);
 
     return ( 
 
@@ -19,51 +54,55 @@ const NewUser = ({estado, cambiarEstado}) => {
                             <Row md={8}>
                                 <Col md={3}>
                                     <FormGroup>
-                                        <Label for="name">
+                                        <Label for="firstname">
                                             Primer Nombre
                                         </Label>
                                         <Input 
-                                        id="name"
-                                        name="name"
+                                        id="firstname"
+                                        name="firstname"
                                         type="text"
+                                        onChange={handleChange}
                                         required
                                         />
                                     </FormGroup>
                                 </Col>
                                 <Col md={3}>
                                     <FormGroup>
-                                        <Label for="name">
+                                        <Label for="secondname">
                                             Segundo Nombre
                                         </Label>
                                         <Input 
-                                        id="name"
-                                        name="name"
+                                        id="secondname"
+                                        name="secondname"
                                         type="text"
+                                        onChange={handleChange}
                                         />
                                     </FormGroup>
                                 </Col>
                                 <Col md={3}>
                                     <FormGroup>
-                                        <Label for="lname">
+                                        <Label for="firstlastname">
                                             Primer Apellido
                                         </Label>
                                         <Input 
-                                        id="lname"
-                                        name="lname"
+                                        id="firstlastname"
+                                        name="firstlastname"
                                         type="text"
+                                        onChange={handleChange}
                                         required
                                         />
                                     </FormGroup>
                                 </Col>
                                 <Col md={3}>
                                     <FormGroup>
-                                        <Label for="lname">
+                                        <Label for="secondlastname">
                                             Segundo Apellido
                                         </Label>
                                         <Input 
-                                        id="lname"
-                                        name="lname"
+                                        id="secondlastname"
+                                        name="secondlastname"
                                         type="text"
+                                        onChange={handleChange}
                                         />
                                     </FormGroup>
                                 </Col>
@@ -71,13 +110,14 @@ const NewUser = ({estado, cambiarEstado}) => {
                             <Row md={8}>
                                 <Col md={4}>
                                     <FormGroup>
-                                        <Label for="ci">
+                                        <Label for="id">
                                             Cedula
                                         </Label>
                                         <Input 
-                                        id="ci"
-                                        name="ci"
+                                        id="id"
+                                        name="id"
                                         type="number"
+                                        onChange={handleChange}
                                         required
                                         />
                                     </FormGroup>
@@ -91,6 +131,7 @@ const NewUser = ({estado, cambiarEstado}) => {
                                         id="user"
                                         name="user"
                                         type="text"
+                                        onChange={handleChange}
                                         required
                                         />
                                     </FormGroup>
@@ -104,6 +145,7 @@ const NewUser = ({estado, cambiarEstado}) => {
                                         id="pass"
                                         name="pass"
                                         type="password"
+                                        onChange={handleChange}
                                         required
                                         />
                                     </FormGroup>
@@ -120,7 +162,7 @@ const NewUser = ({estado, cambiarEstado}) => {
                                     name="dept"
                                     placeholder="Departamento"
                                     type="select"
-                                    required
+                                    
                                     >
                                         <option disabled selected>
                                             
@@ -140,7 +182,7 @@ const NewUser = ({estado, cambiarEstado}) => {
                                     id="cargo"
                                     name="cargo"
                                     type="text"
-                                    required
+                                    
                                     >
                                     </Input>
                                 </FormGroup>
@@ -148,11 +190,15 @@ const NewUser = ({estado, cambiarEstado}) => {
                             </Row>
                             <Row>
                                 <Col>
-                                    <Button style={{
+                                    <Button onClick={handleSubmit} style={{
                                     background: "#2c0808",
                                     }}>
                                     Crear
                                     </Button>
+                                </Col>
+                                <Col>
+                                    {err && <p>{err}</p>}
+                                    {data && <p>{data}</p>}
                                 </Col>
                                 <Col>
                                     <Button onClick={() => cambiarEstado(false)}>

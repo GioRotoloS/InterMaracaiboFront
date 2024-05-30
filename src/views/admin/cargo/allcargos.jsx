@@ -1,20 +1,17 @@
-import React, { useState } from 'react'
-import Navbar from '../../components/admin/Navbar';
+import React from 'react'
+import Navbar from '../../../components/admin/Navbar';
 import { Button, Col, Input, Label, Row, Table } from 'reactstrap';
-import DetalleC from '../../components/Finanzas/DetalleC';
 
-const AllUsers = () => {
-
-    const [detalleC, setDetalleC] = useState(false);
+const AllCargos = () => {
 
   return (
-    <div className='ordenesC'>
+    <div className='AllUsers'>
         <>
             <Navbar/>
         </>
 
         <div className='justify-content-center text-center title'>
-            <h1>Usuarios</h1>
+            <h1>Cargos</h1>
         </div>
 
         <div className='container fluid justify-content-center mt-5 text-center'>
@@ -87,25 +84,6 @@ const AllUsers = () => {
                             backgroundColor: "#2c0808",
                             color: "white"
                         }}>
-                            Usuario
-                        </th>
-                        <th scope='col' style={{
-                            backgroundColor: "#2c0808",
-                            color: "white"
-                        }}>
-                            Primer Nombre
-
-                        </th>
-                        <th scope='col' style={{
-                            backgroundColor: "#2c0808",
-                            color: "white"
-                        }}>
-                            Primer Apellido
-                        </th>
-                        <th scope='col' style={{
-                            backgroundColor: "#2c0808",
-                            color: "white"
-                        }}>
                             Departamento
                         </th>
                         <th scope='col' style={{
@@ -114,6 +92,24 @@ const AllUsers = () => {
                         }}>
                             Cargo
                         </th>
+                        <th scope='col' style={{
+                            backgroundColor: "#2c0808",
+                            color: "white"
+                        }}>
+                            Usuario 1
+                        </th>
+                        <th scope='col' style={{
+                            backgroundColor: "#2c0808",
+                            color: "white"
+                        }}>
+                            Usuario 2
+                        </th>
+                        <th scope='col' style={{
+                            backgroundColor: "#2c0808",
+                            color: "white"
+                        }}>
+                            Usuario 3
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -121,35 +117,34 @@ const AllUsers = () => {
                         <th scope='row' data-label="#">
                             1
                         </th>
-                        <td data-label="Usuario">
-                            Sistemas
-                        </td>
-                        <td data-label="Primer Nombre">
-                            Giovanna
-                        </td>
-                        <td data-label="Primer Apellido">
-                            Rotolo
-                        </td>
                         <td data-label="Departamento">
                             Sistemas
                         </td>
                         <td data-label="Cargo">
                             admin
                         </td>
+                        <td data-label="Usuario 1">
+                            Usuario 1
+                        </td>
+                        <td data-label="Usuario 2">
+                            Usuario 2
+                        </td>
+                        <td data-label="Usuario 3">
+                            Usuario 3
+                        </td>
+                        
                     </tr>
                 </tbody>
             </Table>
             <Button style={{
             background: "#2c0808",
             marginTop: "32px"
-            }} href="/admin/users">
+            }} href="/admin/positions">
                 Volver
             </Button>
         </div>
-        <DetalleC estado = {detalleC}
-                cambiarEstado = {setDetalleC}/>
     </div>
   )
 }
 
-export default AllUsers
+export default AllCargos

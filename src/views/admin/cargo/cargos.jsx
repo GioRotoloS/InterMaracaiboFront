@@ -1,8 +1,16 @@
 import React, { useState } from 'react'
-import { Button, Card, CardTitle, Col, Row, Table } from 'reactstrap'
-import Navbar from '../../components/admin/Navbar';
+import { Button, Card, CardTitle, Col, Row } from 'reactstrap'
+import Navbar from '../../../components/admin/Navbar';
+import NewCargo from '../../../components/admin/CargoModal/NewCargo';
+import DelCargo from '../../../components/admin/CargoModal/DelCargo';
+import EditCargo from '../../../components/admin/CargoModal/EditCargo';
 
 const Cargos = () => {
+
+    const [newCargo, setNewCargo] = useState(false);
+    const [delCargo, setDelCargo] = useState(false);
+    const [editCargo, setEditCargo] = useState(false);
+
   return (
     <div className='users'>
     <>
@@ -23,7 +31,7 @@ const Cargos = () => {
                     <CardTitle tag="h5">
                     Crear Cargo
                     </CardTitle>
-                    <Button  style={{
+                    <Button onClick={() => setNewCargo((!newCargo))} style={{
                         background: "#2c0808",
                     }}>
                     Crear
@@ -36,7 +44,7 @@ const Cargos = () => {
                     <CardTitle tag="h5">
                     Eliminar Cargo
                     </CardTitle>
-                    <Button  style={{
+                    <Button onClick={() => setDelCargo((!delCargo))} style={{
                         background: "#2c0808",
                     }}>
                     Eliminar
@@ -49,7 +57,7 @@ const Cargos = () => {
                     <CardTitle tag="h5">
                     Editar Cargo
                     </CardTitle>
-                    <Button style={{
+                    <Button onClick={() => setEditCargo((!editCargo))} style={{
                         background: "#2c0808",
                     }}>
                     Editar
@@ -62,7 +70,7 @@ const Cargos = () => {
                     <CardTitle tag="h5">
                     Ver Cargos
                     </CardTitle>
-                    <Button href="/admin/users/allusers" style={{
+                    <Button href="/admin/positions/allpositions" style={{
                         background: "#2c0808",
                     }}>
                     Ver
@@ -83,6 +91,12 @@ const Cargos = () => {
                 Volver
         </Button>
     </div>
+    <NewCargo estado = {newCargo}
+              cambiarEstado = {setNewCargo}/>
+    <DelCargo estado = {delCargo}
+              cambiarEstado = {setDelCargo}/>
+    <EditCargo estado = {editCargo}
+              cambiarEstado = {setEditCargo}/>
 </div>
   )
 }

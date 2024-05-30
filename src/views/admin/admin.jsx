@@ -36,15 +36,6 @@ const Admin = () => {
                         </a>
                     </Col>
                     <Col>
-                        <a href='/admin/dept' className="boton">
-                            Departamentos
-                        </a>
-                    </Col>
-                </Row>
-                <Row xs={1} md={4} style={{
-                    marginTop: 10,
-                }}>
-                    <Col>
                         <a href='/admin/views' className="boton">
                             Modulos
                         </a>
