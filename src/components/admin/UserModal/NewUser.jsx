@@ -17,7 +17,7 @@ const NewUser = ({estado, cambiarEstado}) => {
 
     const [err, setError] = useState(null);
 
-    const [data, setData] = useState(null);
+    const message = "Se ha creado el usuario con exito.";
 
     const handleChange = e => {
         setInputs(prev=>({...prev, [e.target.name]: e.target.value}))
@@ -28,16 +28,16 @@ const NewUser = ({estado, cambiarEstado}) => {
 
         try {
             await axios.post("/auth/register", inputs)
+            setError(message);
         } catch (err) {
             setError(err.response.data)
         }
     }
 
-    useEffect(() => {
-        fetch("/auth/register")
-        .then((res) => res.json())
-        .then((data) => setData(data.message));
-    }, []);
+    const cancel = async c => {
+        cambiarEstado(false);
+        setError(null);
+    }
 
     return ( 
 
@@ -198,10 +198,9 @@ const NewUser = ({estado, cambiarEstado}) => {
                                 </Col>
                                 <Col>
                                     {err && <p>{err}</p>}
-                                    {data && <p>{data}</p>}
                                 </Col>
                                 <Col>
-                                    <Button onClick={() => cambiarEstado(false)}>
+                                    <Button onClick={cancel}>
                                     Cancelar
                                     </Button>
                                 </Col>
