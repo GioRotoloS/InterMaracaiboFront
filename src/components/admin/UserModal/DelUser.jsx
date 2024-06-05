@@ -1,8 +1,26 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { Button, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import styled from 'styled-components';
 
 const DelUser = ({estado, cambiarEstado}) => {
+
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+
+            try {
+                
+                const res = await axios.get("/auth/users");
+                setUsers(res.data);
+
+            } catch (err) {
+                console.log(err);
+            }
+        }
+        fetchData();
+    }, []);
 
     return ( 
 
@@ -22,10 +40,35 @@ const DelUser = ({estado, cambiarEstado}) => {
                                             Usuario
                                         </Label>
                                         <Input 
+                                        
                                         id="user"
                                         name="user"
-                                        type="text"
+                                        type="select"
                                         required
+                                        >
+                                            <option disabled selected>
+                                            
+                                            </option>
+                                            {users.map((user)=>(
+                                                <option>
+                                                    {user.User}
+                                                </option>
+                                            ))}
+                                        </Input> 
+                                        
+                                        
+                                    </FormGroup>
+                                </Col>
+                                <Col md={4}>
+                                    <FormGroup>
+                                        <Label for="id">
+                                            Cedula
+                                        </Label>
+                                        <Input 
+                                        id="id"
+                                        name="id"
+                                        type="number"
+                                        disabled
                                         />
                                     </FormGroup>
                                 </Col>

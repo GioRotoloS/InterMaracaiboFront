@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Card, CardTitle, Col, Row, Table } from 'reactstrap'
+import axios from 'axios';
 import Navbar from '../../../components/admin/Navbar';
 import NewUser from '../../../components/admin/UserModal/NewUser';
 import DelUser from '../../../components/admin/UserModal/DelUser';
@@ -10,6 +11,22 @@ const Users = () => {
     const [newUser, setNewUser] = useState(false);
     const [delUser, setDelUser] = useState(false);
     const [editUser, setEditUser] = useState(false);
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+
+            try {
+                
+                const res = await axios.get("/auth/users");
+                setUsers(res.data);
+
+            } catch (err) {
+                console.log(err);
+            }
+        }
+        fetchData();
+    }, []);
 
   return (
     <div className='users'>
@@ -85,7 +102,7 @@ const Users = () => {
         
     }}>
 
-    <h3>Últimos Usuarios</h3>
+    <h3>Usuarios Creados</h3>
         <Table className='tabla' responsive striped>
             <thead>
                 <tr>
@@ -93,7 +110,7 @@ const Users = () => {
                         backgroundColor: "#2c0808",
                         color: "white"
                     }}>
-                        #
+                        Usuario
                     </th>
                     <th scope='col' style={{
                         backgroundColor: "#2c0808",
@@ -111,7 +128,7 @@ const Users = () => {
                         backgroundColor: "#2c0808",
                         color: "white"
                     }}>
-                        Usuario
+                        Cedula
                     </th>
                     <th scope='col' style={{
                         backgroundColor: "#2c0808",
@@ -128,26 +145,28 @@ const Users = () => {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row" data-label="#">
-                        1
-                    </th>
-                    <td data-label="Nombre">
-                        Mark
-                    </td>
-                    <td data-label="Apellido">
-                        Otto
-                    </td>
-                    <td data-label="Usuario">
-                        @mdo
-                    </td>
-                    <td data-label="Departamento">
-                        Sistemas
-                    </td>
-                    <td data-label="Cargo">
-                        Admin
-                    </td>
-                </tr>
+                {users.map((user)=>(
+                    <tr>
+                        <th scope="row" data-label="Usuario">
+                            {user.User}
+                        </th>
+                        <td data-label="Nombre">
+                            {user.FirstName}
+                        </td>
+                        <td data-label="Apellido">
+                            {user.FirstLastName}
+                        </td>
+                        <td data-label="Cedula">
+                            {user.Id}
+                        </td>
+                        <td data-label="Departamento">
+                            Sistemas
+                        </td>
+                        <td data-label="Cargo">
+                            Admin
+                        </td>
+                    </tr>
+                ))}
             </tbody>
         </Table>
         <Button style={{
